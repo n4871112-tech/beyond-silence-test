@@ -947,107 +947,6 @@ body::before{
   .page.single-page .pair{min-height:0!important}
 }
 
-
-/* Final letter — formal integrated edition */
-.final-letter-page .page-inner::before,
-.final-letter-page .page-inner::after{opacity:.6}
-.final-letter-inner{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow-y:auto;
-  overscroll-behavior:contain;
-  -webkit-overflow-scrolling:touch;
-  padding:clamp(70px,9vh,96px) clamp(34px,7vw,90px) clamp(76px,9vh,96px);
-  gap:0;
-  text-align:center;
-}
-.final-gate,.final-message{width:min(660px,100%);margin:auto}
-.final-intro{
-  margin:0 0 22px;
-  font-size:clamp(1rem,1.9vw,1.18rem);
-  line-height:2;
-  letter-spacing:.055em;
-}
-.final-question{
-  margin:30px 0 22px;
-  color:#76572f;
-  font-size:clamp(1.03rem,2vw,1.2rem);
-  font-weight:700;
-  line-height:1.9;
-  letter-spacing:.06em;
-}
-.final-form{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.final-input,.final-unlock{
-  min-height:48px;
-  border-radius:999px;
-  font:inherit;
-}
-.final-input{
-  width:min(330px,100%);
-  padding:11px 20px;
-  border:1px solid rgba(102,73,39,.32);
-  background:rgba(255,253,247,.7);
-  color:#3e3226;
-  outline:none;
-  text-align:center;
-  letter-spacing:.04em;
-  box-shadow:inset 0 1px 5px rgba(80,53,28,.04);
-}
-.final-input:focus{border-color:rgba(102,73,39,.65);box-shadow:0 0 0 4px rgba(126,91,51,.09)}
-.final-unlock{
-  padding:11px 24px;
-  border:1px solid rgba(61,44,28,.22);
-  background:#47372a;
-  color:#f7ecd9;
-  cursor:pointer;
-  letter-spacing:.05em;
-  box-shadow:0 8px 20px rgba(56,38,22,.13);
-}
-.final-unlock:active{transform:translateY(1px)}
-.final-error{min-height:1.5em;margin:14px 0 0;color:#93564b;font-size:.9rem;line-height:1.6}
-.final-gate.is-leaving{animation:finalGateOut .62s ease forwards}
-.final-message{display:none;padding:8px 0 20px}
-.final-message.is-open{display:block}
-.final-line{
-  margin:0 0 20px;
-  opacity:0;
-  transform:translateY(13px);
-  font-size:clamp(1rem,1.85vw,1.16rem);
-  line-height:2;
-  letter-spacing:.055em;
-  animation:finalReveal .9s ease forwards;
-}
-.final-emphasis{color:#71522e;font-weight:700}
-.final-closing{margin-top:30px}
-.final-signature{margin-top:30px;color:#66513b;letter-spacing:.14em}
-.final-message.is-open .final-line:nth-child(1){animation-delay:.15s}
-.final-message.is-open .final-line:nth-child(2){animation-delay:1.05s}
-.final-message.is-open .final-line:nth-child(3){animation-delay:1.95s}
-.final-message.is-open .final-line:nth-child(4){animation-delay:2.85s}
-.final-message.is-open .final-line:nth-child(5){animation-delay:3.75s}
-.final-message.is-open .final-line:nth-child(6){animation-delay:4.75s}
-.final-message.is-open .final-line:nth-child(7){animation-delay:5.7s}
-.final-message.is-open .final-line:nth-child(8){animation-delay:6.65s}
-.final-message.is-open .final-line:nth-child(9){animation-delay:7.65s}
-.final-message.is-open .final-line:nth-child(10){animation-delay:8.65s}
-.final-message.is-open .final-line:nth-child(11){animation-delay:9.7s}
-.final-message.is-open .final-line:nth-child(12){animation-delay:10.65s}
-@keyframes finalGateOut{to{opacity:0;transform:translateY(-10px)}}
-@keyframes finalReveal{to{opacity:1;transform:translateY(0)}}
-@media(max-width:760px){
-  .final-letter-inner{justify-content:flex-start;padding:66px 24px 86px}
-  .final-gate{margin:auto}
-  .final-form{flex-direction:column;align-items:stretch}
-  .final-input,.final-unlock{width:100%}
-  .final-line{margin-bottom:17px;line-height:1.9;letter-spacing:.04em}
-}
-@media(max-height:650px){
-  .final-letter-inner{justify-content:flex-start;padding-top:62px}
-}
-@media(prefers-reduced-motion:reduce){
-  .final-gate.is-leaving,.final-line{animation-duration:.01ms!important;animation-delay:0ms!important}
-}
 </style>
 <style>
 /* ===== Script-free mobile page navigation ===== */
@@ -1487,7 +1386,62 @@ a {
   font-weight: inherit !important;
   vertical-align: baseline !important;
 }
-</style></head>
+</style>
+<style id="final-secret-page-style">
+.final-secret-page .final-secret-inner{
+  min-height:100%;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:54px 48px 96px!important;
+  overflow-y:auto!important;
+  -webkit-overflow-scrolling:touch;
+}
+.final-secret-card{
+  width:min(620px,100%);
+  margin:auto;
+  text-align:center;
+  color:#4d3928;
+  font-family:"Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",serif;
+  font-size:clamp(.98rem,1.6vw,1.14rem);
+  line-height:1.95;
+  letter-spacing:.045em;
+}
+.final-secret-card p{margin:0 0 18px}
+.final-secret-question{font-weight:700;color:#6f4e30;margin-top:26px!important}
+.final-secret-form{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+.final-secret-form input{
+  width:min(310px,100%);min-height:46px;padding:10px 18px;border:1px solid rgba(95,67,37,.32);
+  border-radius:999px;background:rgba(255,252,245,.72);color:#4d3928;text-align:center;font:inherit;outline:none;
+}
+.final-secret-form input:focus{border-color:rgba(95,67,37,.65);box-shadow:0 0 0 4px rgba(111,78,48,.08)}
+.final-secret-form button{
+  min-height:46px;padding:10px 21px;border:1px solid rgba(72,48,28,.18);border-radius:999px;
+  background:#4d392b;color:#fff8ec;font:inherit;cursor:pointer;
+}
+.final-secret-error{min-height:1.5em!important;margin-top:12px!important;color:#934f45;font-size:.9em}
+.final-secret-message{display:none;padding-top:18px;padding-bottom:18px}
+.final-secret-message.show{display:block}
+.final-reveal{opacity:0;transform:translateY(10px);animation:finalReveal .85s ease forwards}
+.final-reveal:nth-child(1){animation-delay:.10s}.final-reveal:nth-child(2){animation-delay:.65s}
+.final-reveal:nth-child(3){animation-delay:1.20s}.final-reveal:nth-child(4){animation-delay:1.75s}
+.final-reveal:nth-child(5){animation-delay:2.30s}.final-reveal:nth-child(6){animation-delay:2.85s}
+.final-reveal:nth-child(7){animation-delay:3.40s}.final-reveal:nth-child(8){animation-delay:3.95s}
+.final-reveal:nth-child(9){animation-delay:4.50s}.final-reveal:nth-child(10){animation-delay:5.05s}
+.final-reveal:nth-child(11){animation-delay:5.60s}.final-reveal:nth-child(12){animation-delay:6.15s}
+.final-secret-message .emphasis{font-weight:700;color:#6f4e30}
+.final-signature{margin-top:28px!important}
+@keyframes finalReveal{to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){
+  .final-secret-page .final-secret-inner{align-items:flex-start!important;padding:38px 22px 104px!important}
+  .final-secret-card{font-size:.98rem;line-height:1.85}
+  .final-secret-form{flex-direction:column;align-items:stretch}
+  .final-secret-form input,.final-secret-form button{width:100%}
+}
+@media(max-height:700px){.final-secret-page .final-secret-inner{align-items:flex-start!important;padding-top:30px!important}}
+@media(prefers-reduced-motion:reduce){.final-reveal{animation-duration:.01ms!important;animation-delay:0ms!important}}
+</style>
+</head>
 <body>
 <div class="side-decor left">
 <div class="side-quote">Some feelings are too deep to be forgotten, yet too proud to be spoken.<div class="side-line"></div></div>
@@ -1536,7 +1490,7 @@ a {
 <div class="text zh" lang="zh-Hant">很長一段時間，我始終說服自己，沉默才是最溫柔的選擇。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#cover">← 上一頁</a><span class="css-page-count">1 / 19</span><a class="css-page-link next" href="#page-2">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#cover">← 上一頁</a><span class="css-page-count">1 / 20</span><a class="css-page-link next" href="#page-2">下一頁 →</a></nav></section>
 <section class="page" data-page="2" id="page-2"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 02</span><span class="cn">書信・02</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">There are affections time cannot persuade into absence.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1548,7 +1502,7 @@ a {
 <div class="text zh" lang="zh-Hant">然而，人終究會走到那樣的一刻。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-1">← 上一頁</a><span class="css-page-count">2 / 19</span><a class="css-page-link next" href="#page-3">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-1">← 上一頁</a><span class="css-page-count">2 / 20</span><a class="css-page-link next" href="#page-3">下一頁 →</a></nav></section>
 <section class="page" data-page="3" id="page-3"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 03</span><span class="cn">書信・03</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">A heart may remain quiet without becoming empty.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1560,7 +1514,7 @@ a {
 <div class="text zh" lang="zh-Hant">如果這封信本就不該存在，請原諒它。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-2">← 上一頁</a><span class="css-page-count">3 / 19</span><a class="css-page-link next" href="#page-4">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-2">← 上一頁</a><span class="css-page-count">3 / 20</span><a class="css-page-link next" href="#page-4">下一頁 →</a></nav></section>
 <section class="page" data-page="4" id="page-4"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 04</span><span class="cn">書信・04</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">Some hopes ask for nothing, and still endure.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1572,7 +1526,7 @@ a {
 <div class="text zh" lang="zh-Hant">我只是希望，有一件事，不再永遠停留於沉默之中。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-3">← 上一頁</a><span class="css-page-count">4 / 19</span><a class="css-page-link next" href="#page-5">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-3">← 上一頁</a><span class="css-page-count">4 / 20</span><a class="css-page-link next" href="#page-5">下一頁 →</a></nav></section>
 <section class="page" data-page="5" id="page-5"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 05</span><span class="cn">書信・05</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">What silence preserves, truth must one day release.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1584,7 +1538,7 @@ a {
 <div class="text zh" lang="zh-Hant">世人總說，時間終會沖淡一切深刻的感情。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-4">← 上一頁</a><span class="css-page-count">5 / 19</span><a class="css-page-link next" href="#page-6">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-4">← 上一頁</a><span class="css-page-count">5 / 20</span><a class="css-page-link next" href="#page-6">下一頁 →</a></nav></section>
 <section class="page" data-page="6" id="page-6"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 06</span><span class="cn">書信・06</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">There are affections time cannot persuade into absence.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1596,7 +1550,7 @@ a {
 <div class="text zh" lang="zh-Hant">人生有些傷痛，會讓人愈來愈少開口，愈來愈少期待，也漸漸不敢再讓自己深深地感受。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-5">← 上一頁</a><span class="css-page-count">6 / 19</span><a class="css-page-link next" href="#page-7">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-5">← 上一頁</a><span class="css-page-count">6 / 20</span><a class="css-page-link next" href="#page-7">下一頁 →</a></nav></section>
 <section class="page" data-page="7" id="page-7"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 07</span><span class="cn">書信・07</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">A heart may remain quiet without becoming empty.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1605,7 +1559,7 @@ a {
 <div class="text zh" lang="zh-Hant">有時，我會想，命運是否曾向你的心索取了太多。</div>
 </article><article class="pair continuation-start"><div class="text en" lang="en">Whether disappointment has persuaded you that safety lies in silence, that expectation is a luxury too costly to keep,</div><div class="text zh" lang="zh-Hant">是不是那些失望，讓你漸漸相信，把心收藏起來才是最安全的選擇；是不是那些遺憾，使你以為，期待終究是一件代價太高的事情；</div></article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-6">← 上一頁</a><span class="css-page-count">7 / 19</span><a class="css-page-link next" href="#page-8">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-6">← 上一頁</a><span class="css-page-count">7 / 20</span><a class="css-page-link next" href="#page-8">下一頁 →</a></nav></section>
 <section class="page" data-page="8" id="page-8"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 08</span><span class="cn">書信・08</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">Some hopes ask for nothing, and still endure.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1614,7 +1568,7 @@ a {
 <div class="text zh" lang="zh-Hant">可是，我始終無法相信，那份溫柔真的會因此消失。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-7">← 上一頁</a><span class="css-page-count">8 / 19</span><a class="css-page-link next" href="#page-9">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-7">← 上一頁</a><span class="css-page-count">8 / 20</span><a class="css-page-link next" href="#page-9">下一頁 →</a></nav></section>
 <section class="page" data-page="9" id="page-9"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 09</span><span class="cn">書信・09</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">What silence preserves, truth must one day release.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1626,7 +1580,7 @@ a {
 <div class="text zh" lang="zh-Hant">冬天曾經覆蓋花園，也不能使春天忘記歸來。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-8">← 上一頁</a><span class="css-page-count">9 / 19</span><a class="css-page-link next" href="#page-10">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-8">← 上一頁</a><span class="css-page-count">9 / 20</span><a class="css-page-link next" href="#page-10">下一頁 →</a></nav></section>
 <section class="page" data-page="10" id="page-10"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 10</span><span class="cn">書信・10</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">There are affections time cannot persuade into absence.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1638,13 +1592,13 @@ a {
 <div class="text zh" lang="zh-Hant">因此，我所懷抱的希望，並不只是為了我自己。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-9">← 上一頁</a><span class="css-page-count">10 / 19</span><a class="css-page-link next" href="#page-11">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-9">← 上一頁</a><span class="css-page-count">10 / 20</span><a class="css-page-link next" href="#page-11">下一頁 →</a></nav></section>
 <section class="page" data-page="11" id="page-11"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 11</span><span class="cn">書信・11</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">A heart may remain quiet without becoming empty.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
 <article class="pair continuation-start"><div class="text en" lang="en">I hope there will come a day when kindness no longer surprises you, when sincerity no longer seems improbable,</div><div class="text zh" lang="zh-Hant">我希望，有一天，善意不再令你感到意外；真誠不再令你覺得難以相信；</div></article><article class="pair continuation"><div class="text en" lang="en">and when your heart, without surrendering its wisdom, remembers that it was made not only to endure this world,</div><div class="text zh" lang="zh-Hant">而你的心，在沒有失去智慧的同時，也仍然記得，它來到這個世界，不只是為了承受一切，</div></article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-10">← 上一頁</a><span class="css-page-count">11 / 19</span><a class="css-page-link next" href="#page-12">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-10">← 上一頁</a><span class="css-page-count">11 / 20</span><a class="css-page-link next" href="#page-12">下一頁 →</a></nav></section>
 <section class="page" data-page="12" id="page-12"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 12</span><span class="cn">書信・12</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">Some hopes ask for nothing, and still endure.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1653,7 +1607,7 @@ a {
 <div class="text zh" lang="zh-Hant">至於那份幸福，究竟會由我帶來，還是由另一個能夠光明正大陪伴你的人帶來，其實都沒有那麼重要。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-11">← 上一頁</a><span class="css-page-count">12 / 19</span><a class="css-page-link next" href="#page-13">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-11">← 上一頁</a><span class="css-page-count">12 / 20</span><a class="css-page-link next" href="#page-13">下一頁 →</a></nav></section>
 <section class="page" data-page="13" id="page-13"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 13</span><span class="cn">書信・13</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">What silence preserves, truth must one day release.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1665,7 +1619,7 @@ a {
 <div class="text zh" lang="zh-Hant">如果是我自作多情了，就讓這封信，也如沉默一般，慢慢歸於沉默。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-12">← 上一頁</a><span class="css-page-count">13 / 19</span><a class="css-page-link next" href="#page-14">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-12">← 上一頁</a><span class="css-page-count">13 / 20</span><a class="css-page-link next" href="#page-14">下一頁 →</a></nav></section>
 <section class="page" data-page="14" id="page-14"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 14</span><span class="cn">書信・14</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">There are affections time cannot persuade into absence.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1677,7 +1631,7 @@ a {
 <div class="text zh" lang="zh-Hant">然而，如果我假裝自己的心，早已沒有一絲希望，那便不是誠實。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-13">← 上一頁</a><span class="css-page-count">14 / 19</span><a class="css-page-link next" href="#page-15">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-13">← 上一頁</a><span class="css-page-count">14 / 20</span><a class="css-page-link next" href="#page-15">下一頁 →</a></nav></section>
 <section class="page" data-page="15" id="page-15"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 15</span><span class="cn">書信・15</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">A heart may remain quiet without becoming empty.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1689,7 +1643,7 @@ a {
 <div class="text zh" lang="zh-Hant">它不要肯定。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-14">← 上一頁</a><span class="css-page-count">15 / 19</span><a class="css-page-link next" href="#page-16">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-14">← 上一頁</a><span class="css-page-count">15 / 20</span><a class="css-page-link next" href="#page-16">下一頁 →</a></nav></section>
 <section class="page" data-page="16" id="page-16"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 16</span><span class="cn">書信・16</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">Some hopes ask for nothing, and still endure.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1701,7 +1655,7 @@ a {
 <div class="text zh" lang="zh-Hant">甚至，不一定要求圓滿。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-15">← 上一頁</a><span class="css-page-count">16 / 19</span><a class="css-page-link next" href="#page-17">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-15">← 上一頁</a><span class="css-page-count">16 / 20</span><a class="css-page-link next" href="#page-17">下一頁 →</a></nav></section>
 <section class="page" data-page="17" id="page-17"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 17</span><span class="cn">書信・17</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">What silence preserves, truth must one day release.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1713,7 +1667,7 @@ a {
 <div class="text zh" lang="zh-Hant">無論明天會把我們帶向何方，我都會感謝命運。因為在我的生命裡，我曾有幸遇見像你這樣的一個靈魂。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-16">← 上一頁</a><span class="css-page-count">17 / 19</span><a class="css-page-link next" href="#page-18">下一頁 →</a></nav></section>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-16">← 上一頁</a><span class="css-page-count">17 / 20</span><a class="css-page-link next" href="#page-18">下一頁 →</a></nav></section>
 <section class="page" data-page="18" id="page-18"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 18</span><span class="cn">書信・18</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">There are affections time cannot persuade into absence.</aside>
 <div class="paper-grain"></div>
 <div class="page-inner">
@@ -1725,41 +1679,49 @@ a {
 <div class="text zh" lang="zh-Hant">你刺穿了我的靈魂。</div>
 </article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-17">← 上一頁</a><span class="css-page-count">18 / 19</span><a class="css-page-link next" href="#page-19">下一頁 →</a></nav></section>
-<section class="page single-page final-letter-page" data-page="19" id="page-19">
-<div class="watermark">Beyond Silence</div>
-<div class="page-title"><span>Final Letter</span><span class="cn">最後一封信</span></div>
-<div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
-<aside aria-label="Page quotation" class="margin-quote">Some words return only when the heart remembers.</aside>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-17">← 上一頁</a><span class="css-page-count">18 / 20</span><a class="css-page-link next" href="#page-19">下一頁 →</a></nav></section>
+<section class="page single-page" data-page="19" id="page-19"><div class="watermark">Beyond Silence</div><div class="page-title"><span>Letter 19</span><span class="cn">書信・19</span></div><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><aside aria-label="Page quotation" class="margin-quote">A heart may remain quiet without becoming empty.</aside>
 <div class="paper-grain"></div>
-<div class="page-inner final-letter-inner">
-  <section class="final-gate" id="finalGate" aria-labelledby="finalQuestion">
-    <p class="final-intro">如果妳真的走到了這裡，<br>那代表妳已經看完了所有我想說的話。</p>
-    <p class="final-intro">但還有一句話，<br>我想知道，妳是否還記得。</p>
-    <p class="final-question" id="finalQuestion">最後一次見面的時候，<br>我對妳說的最後一句話是什麼？</p>
-    <div class="final-form">
-      <input id="finalAnswer" class="final-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="把那句話寫在這裡" aria-label="輸入最後一次見面時說的話">
-      <button id="finalUnlock" class="final-unlock" type="button">開啟最後一封信</button>
-    </div>
-    <p class="final-error" id="finalError" aria-live="polite"></p>
-  </section>
-
-  <section class="final-message" id="finalMessage" aria-live="polite" aria-hidden="true">
-    <p class="final-line final-emphasis">原來，妳還記得。</p>
-    <p class="final-line">原來，那一句話，<br>並沒有隨著那天的告別消失。</p>
-    <p class="final-line">我不知道未來的妳，<br>會走向怎樣的人生。</p>
-    <p class="final-line">也不知道最後陪在妳身邊的人，<br>會是誰。</p>
-    <p class="final-line">但我希望，<br>那個人能理解妳的逞強，<br>也珍惜妳偶爾顯露的脆弱。</p>
-    <p class="final-line">妳一直都是一個很好的人。<br>只是妳好像很少替自己這麼想。</p>
-    <p class="final-line final-emphasis">妳值得被偏愛。</p>
-    <p class="final-line final-emphasis">也值得被一個人，堅定地選擇。</p>
-    <p class="final-line">希望有一天，<br>會有人像妳值得的那樣，<br>好好珍惜妳。</p>
-    <p class="final-line">即使最後陪妳走下去的人不是我，<br>我也真心希望，<br>妳能一直幸福。</p>
-    <p class="final-line final-emphasis final-closing">謝謝妳。<br>我愛妳。</p>
-    <p class="final-line final-signature">—— 育弘</p>
-  </section>
+<div class="page-inner">
+<article class="pair">
+<div class="text en" lang="en">I am half agony, half hope.</div>
+<div class="text zh" lang="zh-Hant">我一半是痛苦，一半是希望。</div>
+</article>
 </div>
-<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-18">← 上一頁</a><span class="css-page-count">19 / 19</span><a class="css-page-link next" href="#cover">封面</a></nav>
+<nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-18">← 上一頁</a><span class="css-page-count">19 / 20</span><a class="css-page-link next" href="#page-20">下一頁 →</a></nav></section>
+
+<section class="page final-secret-page" data-page="20" id="page-20">
+  <div class="watermark">Beyond Silence</div>
+  <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+  <div class="paper-grain"></div>
+  <div class="page-inner final-secret-inner">
+    <div class="final-secret-card" id="finalSecretGate">
+      <p>如果妳真的走到了這裡，<br>那代表妳已經看完了所有我想說的話。</p>
+      <p>但還有一句話，<br>我想知道，妳是否還記得。</p>
+      <p class="final-secret-question">最後一次見面的時候，<br>我對妳說的最後一句話是什麼？</p>
+      <div class="final-secret-form">
+        <input id="finalSecretAnswer" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="把那句話寫在這裡" aria-label="輸入最後一次見面時說的話">
+        <button id="finalSecretUnlock" type="button">開啟最後一封信</button>
+      </div>
+      <p class="final-secret-error" id="finalSecretError" aria-live="polite"></p>
+    </div>
+
+    <div class="final-secret-card final-secret-message" id="finalSecretMessage" aria-live="polite">
+      <p class="final-reveal emphasis">原來，妳還記得。</p>
+      <p class="final-reveal">原來，那一句話，<br>並沒有隨著那天的告別消失。</p>
+      <p class="final-reveal">我不知道未來的妳，<br>會走向怎樣的人生。</p>
+      <p class="final-reveal">也不知道最後陪在妳身邊的人，<br>會是誰。</p>
+      <p class="final-reveal">但我希望，<br>那個人能理解妳的逞強，<br>也珍惜妳偶爾顯露的脆弱。</p>
+      <p class="final-reveal">妳一直都是一個很好的人。<br>只是妳好像很少替自己這麼想。</p>
+      <p class="final-reveal emphasis">妳值得被偏愛。</p>
+      <p class="final-reveal emphasis">也值得被一個人，堅定地選擇。</p>
+      <p class="final-reveal">希望有一天，<br>會有人像妳值得的那樣，<br>好好珍惜妳。</p>
+      <p class="final-reveal">即使最後陪妳走下去的人不是我，<br>我也真心希望，<br>妳能一直幸福。</p>
+      <p class="final-reveal emphasis">謝謝妳。<br>我愛妳。</p>
+      <p class="final-reveal final-signature">—— 育弘</p>
+    </div>
+  </div>
+  <nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-19">← 上一頁</a><span class="css-page-count">20 / 20</span><a class="css-page-link next" href="#cover">封面</a></nav>
 </section>
 </div>
 </main>
@@ -1955,49 +1917,34 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-<script>
+<script id="final-secret-page-script">
 (function(){
-  const gate=document.getElementById('finalGate');
-  const message=document.getElementById('finalMessage');
-  const answer=document.getElementById('finalAnswer');
-  const unlock=document.getElementById('finalUnlock');
-  const error=document.getElementById('finalError');
-  const inner=document.querySelector('#page-19 .final-letter-inner');
-  if(!gate||!message||!answer||!unlock)return;
+  const input=document.getElementById('finalSecretAnswer');
+  const button=document.getElementById('finalSecretUnlock');
+  const gate=document.getElementById('finalSecretGate');
+  const message=document.getElementById('finalSecretMessage');
+  const error=document.getElementById('finalSecretError');
+  if(!input||!button||!gate||!message||!error)return;
   let attempts=0;
-  function normalize(value){
-    return value.trim().replace(/[妳祢]/g,'你').replace(/[，。！？、,.!?；;：:\s]/g,'');
-  }
-  function openFinalLetter(){
-    if(normalize(answer.value)==='我愛你'){
-      error.textContent='';
-      gate.classList.add('is-leaving');
-      window.setTimeout(function(){
-        gate.hidden=true;
-        message.classList.add('is-open');
-        message.setAttribute('aria-hidden','false');
-        if(inner)inner.scrollTo({top:0,behavior:'smooth'});
-      },620);
+  function normalize(value){return value.trim().replace(/[妳祢]/g,'你').replace(/[，。！？、,.!?；;：:\s]/g,'');}
+  function unlock(){
+    if(normalize(input.value)==='我愛你'){
+      gate.style.display='none';
+      message.classList.add('show');
+      const inner=document.querySelector('#page-20 .final-secret-inner');
+      if(inner)inner.scrollTop=0;
       return;
     }
-    attempts+=1;
-    if(!answer.value.trim()) error.textContent='先把妳記得的那句話寫下來。';
-    else if(attempts===1) error.textContent='不是這一句。再想想那天離開以前，我最後說了什麼。';
-    else if(attempts===2) error.textContent='妳一定聽過，而且只有三個字。';
-    else error.textContent='提示：那是一句我曾經很害怕說出口，卻還是在最後說出的話。';
-    answer.focus();
-    answer.select();
+    attempts++;
+    if(!input.value.trim())error.textContent='先把妳記得的那句話寫下來。';
+    else if(attempts===1)error.textContent='不是這一句，再想想那天離開以前，我最後說了什麼。';
+    else error.textContent='提示：只有三個字。';
+    input.focus();input.select();
   }
-  unlock.addEventListener('click',openFinalLetter);
-  answer.addEventListener('keydown',function(event){
-    if(event.key==='Enter'){
-      event.preventDefault();
-      openFinalLetter();
-    }
-  });
-  ['touchstart','touchend'].forEach(function(type){
-    gate.addEventListener(type,function(event){event.stopPropagation()},{passive:true});
-  });
+  button.addEventListener('click',function(e){e.stopPropagation();unlock();});
+  input.addEventListener('click',function(e){e.stopPropagation();});
+  input.addEventListener('touchstart',function(e){e.stopPropagation();},{passive:true});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();unlock();}});
 })();
 </script>
 </body>
