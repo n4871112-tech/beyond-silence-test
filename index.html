@@ -1437,6 +1437,58 @@ a {
 .final-end{opacity:.56;pointer-events:none}
 .final-page .watermark{opacity:.08}
 
+/* Unlock reveal + floating atmosphere for the appended final page. */
+.final-float-layer{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;opacity:0;
+  transition:opacity 1.4s ease .2s;
+}
+.final-page.is-unlocked .final-float-layer{opacity:1}
+.final-float-layer span{
+  position:absolute;bottom:-14%;display:block;width:8px;height:8px;border-radius:50%;
+  background:rgba(117,82,47,.18);box-shadow:0 0 18px rgba(117,82,47,.12);
+  animation:finalParticleFloat 12s linear infinite;
+}
+.final-float-layer span:nth-child(1){left:8%;width:5px;height:5px;animation-duration:13s;animation-delay:-2s}
+.final-float-layer span:nth-child(2){left:20%;width:10px;height:10px;animation-duration:16s;animation-delay:-9s}
+.final-float-layer span:nth-child(3){left:34%;width:6px;height:6px;animation-duration:14s;animation-delay:-5s}
+.final-float-layer span:nth-child(4){left:48%;width:4px;height:4px;animation-duration:11s;animation-delay:-7s}
+.final-float-layer span:nth-child(5){left:62%;width:9px;height:9px;animation-duration:17s;animation-delay:-4s}
+.final-float-layer span:nth-child(6){left:74%;width:5px;height:5px;animation-duration:12s;animation-delay:-10s}
+.final-float-layer span:nth-child(7){left:86%;width:7px;height:7px;animation-duration:15s;animation-delay:-6s}
+.final-float-layer span:nth-child(8){left:94%;width:4px;height:4px;animation-duration:10s;animation-delay:-1s}
+@keyframes finalParticleFloat{
+  0%{transform:translate3d(0,0,0) scale(.75);opacity:0}
+  12%{opacity:.55}
+  50%{transform:translate3d(18px,-52vh,0) scale(1);opacity:.32}
+  100%{transform:translate3d(-12px,-116vh,0) scale(.82);opacity:0}
+}
+.final-letter.open{
+  animation:finalLetterReveal 1.05s cubic-bezier(.22,.75,.25,1) both,
+            finalLetterDrift 6.5s ease-in-out 1.05s infinite;
+}
+.final-letter.open .final-paragraph{
+  opacity:0;transform:translateY(14px);
+  animation:finalParagraphIn .75s ease forwards;
+}
+.final-letter.open .final-paragraph:nth-child(1){animation-delay:.18s}
+.final-letter.open .final-paragraph:nth-child(2){animation-delay:.32s}
+.final-letter.open .final-paragraph:nth-child(3){animation-delay:.46s}
+.final-letter.open .final-paragraph:nth-child(4){animation-delay:.60s}
+.final-letter.open .final-paragraph:nth-child(5){animation-delay:.74s}
+.final-letter.open .final-paragraph:nth-child(6){animation-delay:.88s}
+.final-letter.open .final-paragraph:nth-child(7){animation-delay:1.02s}
+.final-letter.open .final-paragraph:nth-child(8){animation-delay:1.16s}
+.final-letter.open .final-paragraph:nth-child(9){animation-delay:1.30s}
+.final-letter.open .final-paragraph:nth-child(n+10){animation-delay:1.44s}
+@keyframes finalLetterReveal{from{opacity:0;transform:translateY(20px) scale(.992)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes finalParagraphIn{to{opacity:1;transform:translateY(0)}}
+@keyframes finalLetterDrift{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+@media(prefers-reduced-motion:reduce){
+  .final-float-layer span,.final-letter.open,.final-letter.open .final-paragraph{animation:none!important}
+  .final-letter.open .final-paragraph{opacity:1;transform:none}
+}
+
 @media(max-width:760px){
   .final-page-inner{
     padding:28px 20px 82px!important;
@@ -1712,6 +1764,10 @@ a {
   <div class="watermark">Beyond Silence</div>
   <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
   <div class="paper-grain"></div>
+  <div class="final-float-layer" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
   <div class="page-inner final-page-inner">
     <div class="final-shell">
       <div class="final-gate" id="finalGate">
@@ -1964,6 +2020,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function openFinal(){
     if(normalize(answer.value)==='我愛你'){
       gate.style.display='none';
+      document.getElementById('page-20')?.classList.add('is-unlocked');
       letter.classList.add('open');
       letter.scrollTop=0;
       return;
