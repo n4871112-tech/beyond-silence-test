@@ -1387,59 +1387,78 @@ a {
   vertical-align: baseline !important;
 }
 </style>
-<style id="final-secret-page-style">
-.final-secret-page .final-secret-inner{
-  min-height:100%;
+<style id="final-page-v10-styles">
+/* Only the newly appended final page. Existing pages are intentionally untouched. */
+.final-page{background:linear-gradient(90deg,rgba(70,49,27,.10),transparent 8%,transparent 93%,rgba(70,49,27,.05)),var(--paper)}
+.final-page::after{display:none!important}
+.final-page .page-inner::before,
+.final-page .page-inner::after{display:none!important}
+.final-page-inner{
+  height:100%;
+  padding:clamp(36px,5vw,68px) clamp(32px,7vw,88px) 78px!important;
   display:flex!important;
   align-items:center!important;
   justify-content:center!important;
-  padding:54px 48px 96px!important;
-  overflow-y:auto!important;
-  -webkit-overflow-scrolling:touch;
+  overflow:hidden;
 }
-.final-secret-card{
-  width:min(620px,100%);
+.final-shell{
+  width:min(660px,100%);
+  max-height:100%;
   margin:auto;
   text-align:center;
   color:#4d3928;
-  font-family:"Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",serif;
-  font-size:clamp(.98rem,1.6vw,1.14rem);
-  line-height:1.95;
-  letter-spacing:.045em;
 }
-.final-secret-card p{margin:0 0 18px}
-.final-secret-question{font-weight:700;color:#6f4e30;margin-top:26px!important}
-.final-secret-form{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
-.final-secret-form input{
-  width:min(310px,100%);min-height:46px;padding:10px 18px;border:1px solid rgba(95,67,37,.32);
-  border-radius:999px;background:rgba(255,252,245,.72);color:#4d3928;text-align:center;font:inherit;outline:none;
+.final-gate{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%}
+.final-intro{font-size:clamp(1rem,1.8vw,1.18rem);line-height:2;letter-spacing:.055em}
+.final-question{margin:26px 0 19px;font-size:clamp(1.02rem,1.9vw,1.2rem);font-weight:700;line-height:1.9;letter-spacing:.055em;color:#765334}
+.final-form{display:flex;justify-content:center;gap:11px;width:100%}
+.final-input{
+  width:min(320px,100%);min-height:48px;padding:11px 18px;border:1px solid rgba(93,66,39,.28);
+  border-radius:999px;background:rgba(255,253,248,.72);color:#4d3928;text-align:center;outline:none;font:inherit
 }
-.final-secret-form input:focus{border-color:rgba(95,67,37,.65);box-shadow:0 0 0 4px rgba(111,78,48,.08)}
-.final-secret-form button{
-  min-height:46px;padding:10px 21px;border:1px solid rgba(72,48,28,.18);border-radius:999px;
-  background:#4d392b;color:#fff8ec;font:inherit;cursor:pointer;
+.final-input:focus{border-color:rgba(93,66,39,.58);box-shadow:0 0 0 4px rgba(120,83,45,.09)}
+.final-unlock{min-height:48px;padding:11px 21px;border:1px solid rgba(70,46,25,.18);border-radius:999px;background:#4b3829;color:#f8edda;font:inherit;cursor:pointer}
+.final-error{min-height:1.5em;margin:13px 0 0;color:#955447;font-size:.88rem;line-height:1.6}
+.final-letter{
+  display:none;
+  width:100%;
+  max-height:100%;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  padding:12px 8px 28px;
+  scrollbar-width:thin;
 }
-.final-secret-error{min-height:1.5em!important;margin-top:12px!important;color:#934f45;font-size:.9em}
-.final-secret-message{display:none;padding-top:18px;padding-bottom:18px}
-.final-secret-message.show{display:block}
-.final-reveal{opacity:0;transform:translateY(10px);animation:finalReveal .85s ease forwards}
-.final-reveal:nth-child(1){animation-delay:.10s}.final-reveal:nth-child(2){animation-delay:.65s}
-.final-reveal:nth-child(3){animation-delay:1.20s}.final-reveal:nth-child(4){animation-delay:1.75s}
-.final-reveal:nth-child(5){animation-delay:2.30s}.final-reveal:nth-child(6){animation-delay:2.85s}
-.final-reveal:nth-child(7){animation-delay:3.40s}.final-reveal:nth-child(8){animation-delay:3.95s}
-.final-reveal:nth-child(9){animation-delay:4.50s}.final-reveal:nth-child(10){animation-delay:5.05s}
-.final-reveal:nth-child(11){animation-delay:5.60s}.final-reveal:nth-child(12){animation-delay:6.15s}
-.final-secret-message .emphasis{font-weight:700;color:#6f4e30}
-.final-signature{margin-top:28px!important}
-@keyframes finalReveal{to{opacity:1;transform:translateY(0)}}
-@media(max-width:640px){
-  .final-secret-page .final-secret-inner{align-items:flex-start!important;padding:38px 22px 104px!important}
-  .final-secret-card{font-size:.98rem;line-height:1.85}
-  .final-secret-form{flex-direction:column;align-items:stretch}
-  .final-secret-form input,.final-secret-form button{width:100%}
+.final-letter.open{display:block}
+.final-paragraph{margin:0 0 22px;font-size:clamp(.98rem,1.75vw,1.14rem);line-height:2;letter-spacing:.055em;text-wrap:pretty}
+.final-emphasis{font-weight:700;color:#6c4b2f}
+.final-name{font-weight:700;margin-bottom:12px}
+.final-signature{margin-top:30px;margin-bottom:6px}
+.final-end{opacity:.56;pointer-events:none}
+.final-page .watermark{opacity:.08}
+
+@media(max-width:760px){
+  .final-page-inner{
+    padding:28px 20px 82px!important;
+    overflow:hidden!important;
+    justify-content:center!important;
+  }
+  .final-shell{height:100%;max-height:100%;display:flex;align-items:center;justify-content:center}
+  .final-gate{width:100%;min-height:auto}
+  .final-form{flex-direction:column;align-items:stretch}
+  .final-input,.final-unlock{width:100%}
+  .final-letter{
+    align-self:stretch;
+    max-height:100%;
+    padding:18px 3px 34px;
+  }
+  .final-paragraph{font-size:clamp(.98rem,4.3vw,1.08rem);line-height:1.9;margin-bottom:19px;letter-spacing:.035em}
 }
-@media(max-height:700px){.final-secret-page .final-secret-inner{align-items:flex-start!important;padding-top:30px!important}}
-@media(prefers-reduced-motion:reduce){.final-reveal{animation-duration:.01ms!important;animation-delay:0ms!important}}
+@media(max-height:690px) and (max-width:760px){
+  .final-page-inner{padding-top:20px!important;padding-bottom:76px!important}
+  .final-intro{line-height:1.75}
+  .final-question{margin:17px 0 14px;line-height:1.7}
+}
 </style>
 </head>
 <body>
@@ -1689,40 +1708,51 @@ a {
 </article>
 </div>
 <nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-18">← 上一頁</a><span class="css-page-count">19 / 20</span><a class="css-page-link next" href="#page-20">下一頁 →</a></nav></section>
-
-<section class="page final-secret-page" data-page="20" id="page-20">
+<section class="page single-page final-page" data-page="20" id="page-20">
   <div class="watermark">Beyond Silence</div>
   <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
   <div class="paper-grain"></div>
-  <div class="page-inner final-secret-inner">
-    <div class="final-secret-card" id="finalSecretGate">
-      <p>如果妳真的走到了這裡，<br>那代表妳已經看完了所有我想說的話。</p>
-      <p>但還有一句話，<br>我想知道，妳是否還記得。</p>
-      <p class="final-secret-question">最後一次見面的時候，<br>我對妳說的最後一句話是什麼？</p>
-      <div class="final-secret-form">
-        <input id="finalSecretAnswer" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="把那句話寫在這裡" aria-label="輸入最後一次見面時說的話">
-        <button id="finalSecretUnlock" type="button">開啟最後一封信</button>
+  <div class="page-inner final-page-inner">
+    <div class="final-shell">
+      <div class="final-gate" id="finalGate">
+        <div class="final-intro">
+          如果妳真的走到了這裡，<br>
+          那代表妳已經看完了所有我想說的話。<br><br>
+          但還有一句話，<br>
+          我想知道，妳是否還記得。
+        </div>
+        <div class="final-question">
+          最後一次見面的時候，<br>
+          我對妳說的最後一句話，是什麼？
+        </div>
+        <div class="final-form">
+          <input class="final-input" id="finalAnswer" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="把那句話寫在這裡" aria-label="輸入最後一次見面時說的話">
+          <button class="final-unlock" id="finalUnlock" type="button">開啟</button>
+        </div>
+        <div class="final-error" id="finalError" aria-live="polite"></div>
       </div>
-      <p class="final-secret-error" id="finalSecretError" aria-live="polite"></p>
-    </div>
 
-    <div class="final-secret-card final-secret-message" id="finalSecretMessage" aria-live="polite">
-      <p class="final-reveal emphasis">原來，妳還記得。</p>
-      <p class="final-reveal">原來，那一句話，<br>並沒有隨著那天的告別消失。</p>
-      <p class="final-reveal">我不知道未來的妳，<br>會走向怎樣的人生。</p>
-      <p class="final-reveal">也不知道最後陪在妳身邊的人，<br>會是誰。</p>
-      <p class="final-reveal">但我希望，<br>那個人能理解妳的逞強，<br>也珍惜妳偶爾顯露的脆弱。</p>
-      <p class="final-reveal">妳一直都是一個很好的人。<br>只是妳好像很少替自己這麼想。</p>
-      <p class="final-reveal emphasis">妳值得被偏愛。</p>
-      <p class="final-reveal emphasis">也值得被一個人，堅定地選擇。</p>
-      <p class="final-reveal">希望有一天，<br>會有人像妳值得的那樣，<br>好好珍惜妳。</p>
-      <p class="final-reveal">即使最後陪妳走下去的人不是我，<br>我也真心希望，<br>妳能一直幸福。</p>
-      <p class="final-reveal emphasis">謝謝妳。<br>我愛妳。</p>
-      <p class="final-reveal final-signature">—— 育弘</p>
+      <div class="final-letter" id="finalLetter" aria-live="polite">
+        <p class="final-paragraph final-emphasis">原來，妳還記得。</p>
+        <p class="final-paragraph">原來，那一句話，<br>並沒有隨著那天的告別消失。</p>
+        <p class="final-paragraph">我不知道未來的妳，<br>會走向怎樣的人生。</p>
+        <p class="final-paragraph">也不知道最後陪在妳身邊的人，<br>會是誰。</p>
+        <p class="final-paragraph">但我希望，<br>那個人能理解妳的逞強，<br>也珍惜妳偶爾顯露的脆弱。</p>
+        <p class="final-paragraph final-name">伊晶。</p>
+        <p class="final-paragraph">妳一直都是一個很好的人。<br>只是妳好像很少替自己這麼想。</p>
+        <p class="final-paragraph final-emphasis">妳值得被偏愛。</p>
+        <p class="final-paragraph final-emphasis">也值得被一個人，堅定地選擇。</p>
+        <p class="final-paragraph">希望有一天，<br>會有人像妳值得的那樣，<br>好好珍惜妳。</p>
+        <p class="final-paragraph">即使最後陪妳走下去的人不是我，<br>我也真心希望，<br>妳能一直幸福。</p>
+        <p class="final-paragraph final-emphasis">謝謝妳。</p>
+        <p class="final-paragraph final-emphasis">我愛妳。</p>
+        <p class="final-paragraph final-signature">—— 育弘</p>
+      </div>
     </div>
   </div>
-  <nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-19">← 上一頁</a><span class="css-page-count">20 / 20</span><a class="css-page-link next" href="#cover">封面</a></nav>
+  <nav aria-label="手機翻頁控制" class="css-mobile-nav"><a class="css-page-link previous" href="#page-19">← 上一頁</a><span class="css-page-count">20 / 20</span><span class="css-page-link final-end">結束</span></nav>
 </section>
+
 </div>
 </main>
 <div class="navbar">
@@ -1753,6 +1783,8 @@ music.volume=.15;
 
 function updateCounter(){
   counter.textContent=current<0?'封面':`${current+1} / ${pages.length}`;
+  if(current===pages.length-1){ nextBtn.textContent='結束'; nextBtn.disabled=true; }
+  else{ nextBtn.textContent='下一頁 →'; nextBtn.disabled=false; }
 }
 function openBook(){
   if(current>=0)return;
@@ -1917,34 +1949,36 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-<script id="final-secret-page-script">
+<script id="final-page-v10-script">
 (function(){
-  const input=document.getElementById('finalSecretAnswer');
-  const button=document.getElementById('finalSecretUnlock');
-  const gate=document.getElementById('finalSecretGate');
-  const message=document.getElementById('finalSecretMessage');
-  const error=document.getElementById('finalSecretError');
-  if(!input||!button||!gate||!message||!error)return;
+  const gate=document.getElementById('finalGate');
+  const letter=document.getElementById('finalLetter');
+  const answer=document.getElementById('finalAnswer');
+  const unlock=document.getElementById('finalUnlock');
+  const error=document.getElementById('finalError');
+  if(!gate||!letter||!answer||!unlock||!error)return;
   let attempts=0;
-  function normalize(value){return value.trim().replace(/[妳祢]/g,'你').replace(/[，。！？、,.!?；;：:\s]/g,'');}
-  function unlock(){
-    if(normalize(input.value)==='我愛你'){
+  function normalize(value){
+    return value.trim().replace(/[妳祢]/g,'你').replace(/[，。！？、,.!?；;：:\s]/g,'');
+  }
+  function openFinal(){
+    if(normalize(answer.value)==='我愛你'){
       gate.style.display='none';
-      message.classList.add('show');
-      const inner=document.querySelector('#page-20 .final-secret-inner');
-      if(inner)inner.scrollTop=0;
+      letter.classList.add('open');
+      letter.scrollTop=0;
       return;
     }
-    attempts++;
-    if(!input.value.trim())error.textContent='先把妳記得的那句話寫下來。';
-    else if(attempts===1)error.textContent='不是這一句，再想想那天離開以前，我最後說了什麼。';
-    else error.textContent='提示：只有三個字。';
-    input.focus();input.select();
+    attempts+=1;
+    if(!answer.value.trim()) error.textContent='先把妳記得的那句話寫下來。';
+    else if(attempts===1) error.textContent='不是這一句。再想想那天離開以前，我最後說了什麼。';
+    else if(attempts===2) error.textContent='提示：只有三個字。';
+    else error.textContent='提示：那是一句我曾經很害怕說出口，卻還是在最後說出的話。';
+    answer.focus(); answer.select();
   }
-  button.addEventListener('click',function(e){e.stopPropagation();unlock();});
-  input.addEventListener('click',function(e){e.stopPropagation();});
-  input.addEventListener('touchstart',function(e){e.stopPropagation();},{passive:true});
-  input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();unlock();}});
+  unlock.addEventListener('click',openFinal);
+  answer.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();openFinal();}});
+  // Prevent a horizontal gesture inside the final letter/input from accidentally turning the page.
+  [gate,letter].forEach(function(el){el.addEventListener('touchstart',function(e){e.stopPropagation();},{passive:true});el.addEventListener('touchend',function(e){e.stopPropagation();},{passive:true});});
 })();
 </script>
 </body>
